@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eee;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header, h1 {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-text {
+    color: #ff6f47;
+    background: #f7fffe;
+    transition: all 0.3s ease;
+    font-size: 2rem;
+    border: none;
+    background: white;
+    border: none;
+    outline: none;
+    border: 1px solid #000;
+}
+
+.sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.sort-buttons {
+    display: flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+.sort-button button {
+    margin: 0 4px;
+    background-color: lightgreen;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 0 5px;
+    text-align: center;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.sort-button button:hover{
+    background-color: lightsalmon;
+}
+.sort-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sort-text {
+    margin-right: 40px;
+}
+.sort-icon {
+    margin: 0 3px;
+}
+.sort-icon button {
+    font-size: 20px;
+    padding: 0 5px;
+    text-align: center;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.todo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+}
+.todo-list {
+    min-width: 35%;
+    list-style: none;
+}
+.todo-item {
+    margin-left: 40px;
+    position: absolute;
+}
+.complete-btn {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.todo p {
+    position: absolute;
+    margin-left: 335px;
+}
+.trash-btn {
+    background-color: salmon;
+    border: 1px solid #000;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+}
+.todo-button {
+    margin-left: 5px;
+    font-size: 20px;
+    position: absolute;
+    font-size: 20px;
+    padding: 5px 15px;
+    background-color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in;
+}
+.todo-button:hover {
+    background-color: springgreen;
+}
+.completed {
+    text-decoration: line-through;
+    color: salmon;
+}
+.select-buttons {
+    width: 150px;
+    height: 30px;
+    background-color: springgreen;
+    outline: none;
+    border: 1px solid #000;
+    font-size: 20px;
+}
+.select-button {
+    background-color: #fff;
+    font-size: 20px;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+.page-item {
+    margin: 0 15px;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+a:focus {
+    font-weight: 700;
+}
