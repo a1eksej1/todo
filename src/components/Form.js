@@ -1,4 +1,4 @@
-const Form = ({setInputText, setTodos, todos, inputText, setStatus}) => {
+const Form = ({setInputText, setTodos, todos, inputText, setStatus, filteredTodos, setFilteredTodos}) => {
 
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
@@ -7,7 +7,7 @@ const Form = ({setInputText, setTodos, todos, inputText, setStatus}) => {
     const submitTodoHandler = (e) => {
         e.preventDefault();
         setTodos([
-            ...todos, {text: inputText, completed: false, id: Math.random() * 1000}
+            ...todos, {text: inputText, completed: false, id: Math.random() * 1000, date: new Date().toLocaleTimeString()}
         ]);
         setInputText('');
     }
@@ -15,6 +15,27 @@ const Form = ({setInputText, setTodos, todos, inputText, setStatus}) => {
     const statusHandler = (e) => {
         setStatus(e.target.value);
     }
+    const sortDate = (filter) => {
+     
+            if (filter === 'Up') {
+                setFilteredTodos(filteredTodos => [...filteredTodos].sort((a, b) => {
+                    if (a.date > b.date) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                }));
+            } else {
+                
+                setFilteredTodos(filteredTodos => [...filteredTodos].sort((a, b) => {
+                    if (a.date < b.date) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                }));
+            }
+        }
 
     return(
         <div className="header">
@@ -33,15 +54,16 @@ const Form = ({setInputText, setTodos, todos, inputText, setStatus}) => {
                 <div className="sort-icons">
                     <div className="sort-text">Sort By</div>
                     <div className="sort-icon">
-                        <button className="icon-up">↑</button>
+                        <button className="icon-up" onClick={() => sortDate('Up')}>↑</button>
                     </div>
                     <div className="sort-icon">
-                        <button className="icon-down">↓</button>
+                        <button className="icon-down" onClick={() => sortDate('Down')}>↓</button>
                     </div>
                 </div>
             </div>
         </div>
     )
+
 }
 
 export default Form;

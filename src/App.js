@@ -73,6 +73,7 @@ const App = () => {
                 setTodos={setTodos} 
                 setInputText={setInputText}
                 setStatus={setStatus}
+                setFilteredTodos={setFilteredTodos}
             />
             <TodoList filteredTodos={currentTodos} setStatus={setStatus} setTodos={setTodos} todos={todos} />
             <Pagination todosPerPage={todosPerPage} paginate={paginate} totalTodos={filteredTodos.length} />

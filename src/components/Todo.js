@@ -1,7 +1,7 @@
 import Bin from './bin.svg';
 
-const Todo = ({text, setTodos, todos, todo}) => {
-    
+const Todo = ({text, setTodos, todos, todo, date}) => {
+
     const deleteHandler = () => {
         setTodos(todos.filter(el => el.id !== todo.id));
     }
@@ -21,7 +21,7 @@ const Todo = ({text, setTodos, todos, todo}) => {
         <div className="todo">
             <input onClick={completeHandler} className="complete-btn" type="checkbox" />
             <li className={`todo-item ${todo.completed ? "completed" : ''}`}>{text}</li>
-            <p>30.11.2021</p>
+            <p className="time">{date}</p>
             <button onClick={deleteHandler} className="trash-btn">
                 <img src={Bin} alt="bin" />
             </button>
