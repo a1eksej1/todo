@@ -52,7 +52,7 @@ const Form = ({setInputText, setTodos, todos, inputText, setStatus, filteredTodo
                     </select>
                 </div>
                 <div className="sort-icons">
-                    <div className="sort-text">Sort By</div>
+                    <div className="sort-text">Sort By Date</div>
                     <div className="sort-icon">
                         <button className="icon-up" onClick={() => sortDate('Up')}>↑</button>
                     </div>

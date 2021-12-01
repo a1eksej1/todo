@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
 import Pagination from './components/Pagination';
+import axios from 'axios';
 import './App.css';
 
-
-
 const App = () => {    
+
+    axios
+        .post('https://todo-api-learning.herokuapp.com/v1/task/2')
+        .then(response => {console.log(response)})
+        .catch((error) => {console.log(error)});
 
     const [inputText, setInputText] = useState("");
     const [todos, setTodos] = useState([]);

@@ -31,6 +31,9 @@ body {
     outline: none;
     border: 1px solid #000;
 }
+.select-buttons {
+    margin-right: 30px;
+}
 
 .sort {
     display: flex;
@@ -65,7 +68,7 @@ body {
     align-items: center;
 }
 .sort-text {
-    margin-right: 40px;
+    margin-right: 10px;
 }
 .sort-icon {
     margin: 0 3px;
@@ -120,7 +123,7 @@ body {
     font-size: 20px;
     position: absolute;
     font-size: 20px;
-    padding: 5px 15px;
+    padding: 7px 15px;
     background-color: #fff;
     border: 1px solid #000;
     cursor: pointer;
@@ -140,10 +143,12 @@ body {
     outline: none;
     border: 1px solid #000;
     font-size: 20px;
+    cursor: pointer;
 }
 .select-button {
     background-color: #fff;
     font-size: 20px;
+    cursor: pointer;
 }
 nav {
     display: flex;
