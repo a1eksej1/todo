@@ -7,23 +7,28 @@ import './App.css';
 
 const App = () => {    
 
-    axios
-        .post('https://todo-api-learning.herokuapp.com/v1/task/2')
-        .then(response => {console.log(response)})
-        .catch((error) => {console.log(error)});
-
     const [inputText, setInputText] = useState("");
     const [todos, setTodos] = useState([]);
     const [status, setStatus] = useState('all');
     const [filteredTodos, setFilteredTodos] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [todosPerPage, setTododsPerPage] = useState(5); 
+    const [todosPerPage, setTododsPerPage] = useState(5);
+    
 
     // console.log(todos);
     const indexOfLastTodo = currentPage * todosPerPage;
     const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
     const currentTodos = filteredTodos.slice(indexOfFirstTodo, indexOfLastTodo);
 
+    useEffect(() => {
+        const a = async () => {
+            const apiUrl = await axios
+                .get('https://todo-api-learning.herokuapp.com/v1/tasks/2?order=asc')
+                .then(res => setFilteredTodos(res.data))
+                console.log(apiUrl);
+        }
+        a();
+    }, [])
 
     useEffect(() => {
         getLocalTodos();
