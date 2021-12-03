@@ -21,23 +21,23 @@ const App = () => {
     const currentTodos = filteredTodos.slice(indexOfFirstTodo, indexOfLastTodo);
 
     useEffect(() => {
-        const a = async () => {
+        const getTask = async () => {
             const apiUrl = await axios
                 .get('https://todo-api-learning.herokuapp.com/v1/tasks/2?order=asc')
                 .then(res => setFilteredTodos(res.data))
                 console.log(apiUrl);
         }
-        a();
-    }, [])
+        getTask();
+    }, [todos])
 
-    useEffect(() => {
-        getLocalTodos();
-    }, [])
+    // useEffect(() => {
+    //     getLocalTodos();
+    // }, [])
 
-    useEffect(() => {
-        filterHandler();
-        saveLocalTodos();
-    }, [todos, status]);
+    // useEffect(() => {
+    //     filterHandler();
+    //     saveLocalTodos();
+    // }, [todos, status]);
 
     const filterHandler = () => {
         switch(status) {

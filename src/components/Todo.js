@@ -1,20 +1,39 @@
+import axios from 'axios';
 import Bin from './bin.svg';
 
-const Todo = ({name, setTodos, todos, todo, date}) => {
+const Todo = ({name, setTodos, todos, todo, date, setStatus, status, setCurrentPage, currentPage, filteredTodos}) => {
 
-    const deleteHandler = () => {
-        setTodos(todos.filter(el => el.id !== todo.id));
+    const deleteHandler = async (id) => {
+        try {
+            await axios.delete(`https://todo-api-learning.herokuapp.com/v1/task/2/${id}`);
+            let newTodos = todos.filter(el => el.id !== todo.id)
+            setTodos(newTodos);
+        } catch(err) {
+            console.log(err.response.data.message)
+        }
+        
+        // setTodos(todos.filter(el => el.id !== todo.id));
     }
 
-    const completeHandler = () => {
-        setTodos(todos.map((item) => {
-            if(item.id === todo.id) {
-                return {
-                    ...item, completed: !item.completed
-                }
-            }
-            return item;
-        }))
+    const completeHandler = async (e) => {
+
+        try {
+            await axios.patch(`https://todo-api-learning.herokuapp.com/v1/task/2/${e.id}`, {
+                name: name,
+                done: !e.done
+            })
+        } catch(err) {
+            console.log(err.response.data.message)
+        }
+
+        // setTodos(todos.map((item) => {
+        //     if(item.id === todo.id) {
+        //         return {
+        //             ...item, completed: !item.completed
+        //         }
+        //     }
+        //     return item;
+        // }))
     }
 
     return(

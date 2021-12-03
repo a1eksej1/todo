@@ -1,18 +1,37 @@
+import axios from "axios";
+
 const Form = ({setInputText, setTodos, todos, inputText, setStatus, filteredTodos, setFilteredTodos}) => {
 
-    const inputTextHandler = (e) => {
+    const inputTextHandler = async (e) => {
         setInputText(e.target.value);
+        // try {
+        //     e.preventDefault();
+        //     await axios.post('https://todo-api-learning.herokuapp.com/v1/task/2')
+        //     setInputText(e.target.value)
+        // } catch(err) {
+        //     console.log(err.response.data.message);
+        // }
     }
 
-    const submitTodoHandler = (e) => {
-        e.preventDefault();
-        setTodos([
-            ...todos, {text: inputText, completed: false, id: Math.random() * 1000, date: new Date().toLocaleTimeString()}
-        ]);
-        setInputText('');
+    const submitTodoHandler = async (e, todo) => {
+        
+        try {
+            e.preventDefault();
+            await axios.post('https://todo-api-learning.herokuapp.com/v1/task/2', {name: inputText, done: false})
+            setInputText(e.target.value);
+        } catch(err) {
+            console.log(err.response.data.message);
+        }
+        
+        // e.preventDefault();
+        // setTodos([
+        //     ...todos, {text: inputText, completed: false, id: Math.random() * 1000, date: new Date().toLocaleTimeString()}
+        // ]);
+        // setInputText('');
     }
 
     const statusHandler = (e) => {
+        
         setStatus(e.target.value);
     }
     const sortDate = (filter) => {
